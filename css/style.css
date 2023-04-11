@@ -2,6 +2,10 @@
     font-family: Open Sans, sans-serif !important;
 }
 
+a{
+    text-decoration: none !important;
+}
+
 header{
     padding: 20px 0;
     border-bottom: gray solid 3px;
@@ -50,6 +54,14 @@ h1,h2,h3,h4,h5{
 
 .img-link :hover{
     filter: brightness(50%);  
+}
+
+table a,.link-teaching a{
+    color:#2a42ff !important
+}
+
+table a:hover, .link-teaching :hover{
+    color:white !important
 }
 
 .table-style {
