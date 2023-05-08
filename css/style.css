@@ -6,6 +6,14 @@ a{
     text-decoration: none !important;
 }
 
+a.link-misc{
+    color:#122196!important;
+    text-align: center;
+}
+a.link-misc:hover{
+    color:white !important
+}
+
 header{
     padding: 20px 0;
     border-bottom: gray solid 3px;
