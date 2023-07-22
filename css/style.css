@@ -64,6 +64,10 @@ h1,h2,h3,h4,h5{
     filter: brightness(50%);  
 }
 
+.img-fluid {
+    max-width: 25% !important;
+}
+
 table a,.link-teaching a{
     color:#2a42ff !important
 }
