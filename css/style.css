@@ -7,12 +7,12 @@ a{
 }
 
 a.link-misc{
-    color:#122196!important;
+    color:#122196;
     text-align: center;
     transition: color 0.3s ease;
 }
 a.link-misc:hover{
-    color:white !important
+    color:white;
 }
 
 header{
@@ -41,7 +41,7 @@ main{
 }
 
 h1,h2,h3,h4,h5{
-    font-weight: bold !important;
+    font-weight: bold;
 }
 
 .nav-item a:hover{
@@ -50,7 +50,7 @@ h1,h2,h3,h4,h5{
 }
 
 .nav-item li a img:hover{
-    filter: brightness(50%) !important;
+    filter: brightness(50%);
 }
 
 .nav-item a{
@@ -65,7 +65,7 @@ h1,h2,h3,h4,h5{
 }
  
 .nav-item{
-    font-size: 20px !important;
+    font-size: 20px;
     padding: 5px;
  
 }
@@ -84,16 +84,16 @@ h1,h2,h3,h4,h5{
 }
 
 .img-fluid {
-    max-width: 25% !important;
+    max-width: 300px !important;
 }
 
 table a,.link-teaching a{
-    color:#2a42ff !important;
+    color:#d4e0ff;
     transition: color 0.3s ease;
 }
 
 table a:hover, .link-teaching :hover{
-    color:white !important
+    color:#ffffff;
 }
 
 .table-style {
@@ -123,4 +123,68 @@ table a:hover, .link-teaching :hover{
 
 .col-lg-6,.col-lg-12{
     padding: 5px;
+}
+
+.navbar-toggler-custom{
+    background: #234585;
+    border: 1px solid white;
+    padding: 10px;
+}
+
+.navbar-toggler-wrapper{
+    text-align: center;
+    width: 100%;
+}
+
+.nav-lattes{
+    text-align: center;
+    margin: 10px;
+}
+
+.footer-info{
+    text-align: center;
+    margin: 10px;
+}
+
+.footer-logo{
+    margin: 15px;
+}
+
+.table-style h5{
+    margin: 10px;
+}
+
+.contact-link{
+    color: #A5D7E8;
+    transition: color 0.3s ease;
+}
+
+.contact-link:hover{
+    color: #ffffff;
+}
+
+.about-text{
+    text-align: center;
+    font-size: 18px;
+}
+
+.prev-semesters{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+@media (max-width: 991px) {
+    .table-style {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .table-style td, .table-style th {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .table-style h5 {
+        font-size: 16px;
+    }
 }
