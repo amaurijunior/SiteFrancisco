@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <title>Pluviômetro - Francisco Braun</title>
+  <link rel="icon" type="image/x-icon" href="Assets/dm_logo.ico">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="description" content="Dashboard de dados pluviométricos coletados em São Carlos - SP">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/pluviometro.css">
+</head>
+
+<body>
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4"></header>
+
+  <main>
+    <div class="container-fluid">
+      <!-- Título -->
+      <div class="row">
+        <div class="col-12">
+          <h1 class="text-center">Dashboard de Pluviômetro</h1>
+          <h3 class="text-center">Dados de Precipitação - São Carlos, SP</h3>
+        </div>
+      </div>
+
+      <!-- Seção Informativa -->
+      <section class="row mt-4" id="metodologia">
+        <div class="col-12 col-lg-10 offset-lg-1">
+          <h4>Sobre as Medições</h4>
+          <p class="about-text">
+            Os dados apresentados são coletados com pluviômetro padrão instalado em São Carlos, SP.
+            Leituras são realizadas diariamente às 9h, registrando a precipitação acumulada nas últimas 24 horas.
+            Período de coleta: Janeiro de 2026 até o presente.
+          </p>
+        </div>
+      </section>
+
+      <!-- Cards de Estatísticas -->
+      <section class="row mt-4" id="stats">
+        <div class="col-12 col-md-4">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Total</h5>
+              <p class="card-text stats-value" id="stat-total">--</p>
+              <p class="card-text">mm</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Média Diária</h5>
+              <p class="card-text stats-value" id="stat-average">--</p>
+              <p class="card-text">mm/dia</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Máxima</h5>
+              <p class="card-text stats-value" id="stat-max">--</p>
+              <p class="card-text" id="stat-max-date">--</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Filtros e Controles -->
+      <section class="row mt-4" id="controls">
+        <div class="col-12 col-lg-10 offset-lg-1">
+          <div class="d-flex flex-wrap justify-content-between align-items-center">
+            <!-- Filtros de Período -->
+            <div class="btn-group mb-3" role="group" aria-label="Filtros de período">
+              <button type="button" class="btn btn-primary filter-btn" data-period="7">7 dias</button>
+              <button type="button" class="btn btn-primary filter-btn active" data-period="30">30 dias</button>
+              <button type="button" class="btn btn-primary filter-btn" data-period="180">6 meses</button>
+              <button type="button" class="btn btn-primary filter-btn" data-period="365">1 ano</button>
+              <button type="button" class="btn btn-primary filter-btn" data-period="all">Todo histórico</button>
+            </div>
+
+            <!-- Toggle Modo Comparação -->
+            <div class="form-check form-switch mb-3">
+              <input class="form-check-input" type="checkbox" id="comparisonToggle" aria-label="Ativar modo comparação">
+              <label class="form-check-label" for="comparisonToggle">Modo Comparação</label>
+            </div>
+          </div>
+
+          <!-- Seletores de Comparação (escondidos por padrão) -->
+          <div id="comparisonSelectors" class="d-none">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <label for="period1">Período 1:</label>
+                <select class="form-select" id="period1" aria-label="Selecionar primeiro período">
+                  <!-- Populado dinamicamente -->
+                </select>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="period2">Período 2:</label>
+                <select class="form-select" id="period2" aria-label="Selecionar segundo período">
+                  <!-- Populado dinamicamente -->
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gráfico -->
+      <section class="row mt-4" id="chart-section">
+        <div class="col-12">
+          <div class="chart-container">
+            <canvas id="precipitationChart" aria-label="Gráfico de precipitação pluviométrica"></canvas>
+          </div>
+          <!-- Loading indicator -->
+          <div id="loading" class="text-center d-none">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Carregando dados...</span>
+            </div>
+          </div>
+          <!-- Error message -->
+          <div id="error-message" class="alert alert-warning d-none" role="alert">
+            <strong>Aviso:</strong> Não foi possível carregar os dados do arquivo CSV.
+            Exibindo dados de exemplo para demonstração. Se o problema persistir, entre em
+            <a href="mailto:franciscobraun@dm.ufscar.br" class="alert-link">contato</a>.
+          </div>
+        </div>
+      </section>
+
+      <!-- Tabela acessível (escondida visualmente, disponível para leitores de tela) -->
+      <section class="visually-hidden" aria-live="polite">
+        <table id="data-table">
+          <caption>Dados de precipitação</caption>
+          <thead>
+            <tr>
+              <th scope="col">Data</th>
+              <th scope="col">Precipitação (mm)</th>
+              <th scope="col">Observações</th>
+            </tr>
+          </thead>
+          <tbody id="data-table-body">
+            <!-- Populado dinamicamente -->
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+
+  <footer></footer>
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Components (header/footer) -->
+  <script src="js/components.js"></script>
+
+  <!-- Dashboard logic -->
+  <script src="js/mockData.js"></script>
+  <script src="js/pluviometro.js"></script>
+</body>
+
+</html>

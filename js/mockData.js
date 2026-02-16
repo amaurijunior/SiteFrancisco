@@ -1,0 +1,35 @@
+// Mock data para fallback quando CSV não estiver disponível
+// Este arquivo será implementado completamente na Tarefa 8
+
+const MOCK_DATA = [
+  { date: new Date(2026, 0, 1), precipitation: 12.5, notes: '' },
+  { date: new Date(2026, 0, 2), precipitation: 0, notes: '' },
+  { date: new Date(2026, 0, 3), precipitation: 5.2, notes: 'Chuva leve pela manhã' },
+  { date: new Date(2026, 0, 4), precipitation: 18.7, notes: '' },
+  { date: new Date(2026, 0, 5), precipitation: 32.4, notes: 'Tempestade à tarde' },
+  { date: new Date(2026, 0, 6), precipitation: 7.3, notes: '' },
+  { date: new Date(2026, 0, 7), precipitation: 0, notes: '' },
+  { date: new Date(2026, 0, 8), precipitation: 15.8, notes: '' },
+  { date: new Date(2026, 0, 9), precipitation: 0, notes: '' },
+  { date: new Date(2026, 0, 10), precipitation: 3.5, notes: '' },
+  { date: new Date(2026, 0, 11), precipitation: 22.1, notes: 'Chuva contínua' },
+  { date: new Date(2026, 0, 12), precipitation: 8.9, notes: '' },
+  { date: new Date(2026, 0, 13), precipitation: 0, notes: '' },
+  { date: new Date(2026, 0, 14), precipitation: 0, notes: '' },
+  { date: new Date(2026, 0, 15), precipitation: 11.2, notes: '' },
+  { date: new Date(2026, 0, 16), precipitation: 0, notes: '' },
+  { date: new Date(2026, 0, 17), precipitation: 19.6, notes: '' },
+  { date: new Date(2026, 0, 18), precipitation: 4.7, notes: '' },
+  { date: new Date(2026, 0, 19), precipitation: 0, notes: '' },
+  { date: new Date(2026, 0, 20), precipitation: 27.3, notes: 'Tempestade noturna' },
+  { date: new Date(2026, 0, 21), precipitation: 13.5, notes: '' },
+  { date: new Date(2026, 0, 22), precipitation: 0, notes: '' },
+  { date: new Date(2026, 0, 23), precipitation: 6.8, notes: '' },
+  { date: new Date(2026, 0, 24), precipitation: 0, notes: '' },
+  { date: new Date(2026, 0, 25), precipitation: 14.9, notes: '' },
+  { date: new Date(2026, 0, 26), precipitation: 0, notes: '' },
+  { date: new Date(2026, 0, 27), precipitation: 9.3, notes: '' },
+  { date: new Date(2026, 0, 28), precipitation: 0, notes: '' },
+  { date: new Date(2026, 0, 29), precipitation: 21.7, notes: '' },
+  { date: new Date(2026, 0, 30), precipitation: 7.1, notes: '' }
+];

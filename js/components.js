@@ -11,6 +11,7 @@ function loadHeader(activePage) {
         { href: 'students.html', label: 'Students' },
         { href: 'research.html', label: 'Research' },
         { href: 'teaching.html', label: 'Teaching' },
+        { href: 'pluviometro.html', label: 'Pluviômetro' },
         { href: 'miscellaneous.html', label: 'Miscellaneous' }
     ];
 
