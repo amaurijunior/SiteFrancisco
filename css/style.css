@@ -1,3 +1,15 @@
+/*
+ * PALETA DE REFERÊNCIA — Redesign UI/UX (Apple-inspired)
+ * ----------------------------------------------------------
+ * Fundo principal:   #ffffff  (branco)
+ * Fundo secundário:  #f5f5f7  (off-white)
+ * Accent:            #0071e3  (azul Apple)
+ * Texto principal:   #1d1d1f  (quase preto)
+ * Texto secundário:  #6e6e73  (cinza médio)
+ * Bordas/separadores:#d2d2d7  (cinza claro)
+ * ----------------------------------------------------------
+ */
+
 *{
     font-family: Open Sans, sans-serif !important;
 }
@@ -7,46 +19,51 @@ a{
 }
 
 a.link-misc{
-    color:#122196;
+    color: #0071e3;
     text-align: center;
-    transition: color 0.3s ease;
+    transition: color 0.2s ease;
 }
 a.link-misc:hover{
-    color:white;
+    color: #0071e3;
+    text-decoration: underline !important;
 }
 
 header{
     padding: 20px 0;
-    border-bottom: gray solid 3px;
-    background: linear-gradient(90deg, #0B2447 0%, #103466 35%, #144283 100%)
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid #d2d2d7;
 }
 
 footer{
-    color: white;
-    font-weight: bold;
-    background-color:#24272c;
-    border-top: solid gray 3px;
+    color: #1d1d1f;
+    background-color: #f5f5f7;
+    border-top: 1px solid #d2d2d7;
     margin-top: auto;
 }
 
 body{
-    background:linear-gradient(90deg, #576CBC 0%, #657cda 35%, #718af0 100%);
+    background: #ffffff;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    color: #1d1d1f;
+    font-weight: 400;
 }
 
 main{
     flex-grow: 1;
+    padding: 24px 0;
 }
 
 h1,h2,h3,h4,h5{
-    font-weight: bold;
+    font-weight: 700;
 }
 
 .nav-item a:hover{
-    color: #2192b8 !important;
-    background-color: #234585 !important;
+    color: #0071e3 !important;
+    background-color: transparent !important;
 }
 
 .nav-item li a img:hover{
@@ -54,14 +71,15 @@ h1,h2,h3,h4,h5{
 }
 
 .nav-item a{
-    color: white;
+    color: #1d1d1f;
     padding: 10px;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: color 0.2s ease;
 }
 
 .nav-item a.active{
-    background-color: #234585 !important;
-    border-bottom: 3px solid #2192b8;
+    color: #0071e3 !important;
+    background-color: transparent !important;
+    border-bottom: 2px solid #0071e3;
 }
  
 .nav-item{
@@ -71,8 +89,8 @@ h1,h2,h3,h4,h5{
 }
 
 .btn-primary{
-    background-color: #0B2447 !important;
-
+    background-color: #0071e3 !important;
+    border-color: #0071e3 !important;
 }
 
 .img-link img{
@@ -87,20 +105,31 @@ h1,h2,h3,h4,h5{
     max-width: 300px !important;
 }
 
+main a {
+    color: #0071e3;
+    transition: color 0.2s ease;
+}
+
+main a:hover {
+    text-decoration: underline !important;
+}
+
 table a,.link-teaching a{
-    color:#d4e0ff;
-    transition: color 0.3s ease;
+    color:#0071e3;
+    transition: color 0.2s ease;
 }
 
 table a:hover, .link-teaching :hover{
-    color:#ffffff;
+    color:#0071e3;
+    text-decoration: underline !important;
 }
 
 .table-style {
-    border-radius: 25px;
+    border-radius: 10px;
     font-weight: normal;
-    border: none;
-    border-collapse: collapse; 
+    border: 1px solid #d2d2d7;
+    border-collapse: separate !important;
+    border-spacing: 0;
     height: 100%;
     width: 100%;
 }
@@ -108,27 +137,39 @@ table a:hover, .link-teaching :hover{
 .table-style td, .table-style th {
     text-align: center;
     padding: 8px;
-    background: #718af0;
-    border: solid 2px #506cdb;
+    background: #ffffff;
+    border-bottom: 1px solid #d2d2d7;
     font-weight: bold;
-    
 }
 
-.table-style  th {
-    color: #ffffff;
-    background: #506cdb;
-    border: solid 2px #506cdb;
+.table-style th {
+    color: #1d1d1f;
+    background: #f5f5f7;
     text-align: center;
-} 
+    border-radius: 10px 10px 0 0;
+}
+
+.table-style tbody tr:last-child td {
+    border-bottom: none;
+    border-radius: 0 0 10px 10px;
+}
+
+.table-style tr:nth-child(even) td {
+    background: #fafafa;
+}
 
 .col-lg-6,.col-lg-12{
     padding: 5px;
 }
 
 .navbar-toggler-custom{
-    background: #234585;
-    border: 1px solid white;
+    background: transparent;
+    border: 1px solid #d2d2d7;
     padding: 10px;
+}
+
+.navbar-toggler-custom .navbar-toggler-icon{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%231d1d1f' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 .navbar-toggler-wrapper{
@@ -144,6 +185,17 @@ table a:hover, .link-teaching :hover{
 .footer-info{
     text-align: center;
     margin: 10px;
+    color: #1d1d1f;
+}
+
+footer a{
+    color: #0071e3;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+footer a:hover{
+    color: #0071e3;
+    text-decoration: underline !important;
 }
 
 .footer-logo{
@@ -155,12 +207,13 @@ table a:hover, .link-teaching :hover{
 }
 
 .contact-link{
-    color: #A5D7E8;
-    transition: color 0.3s ease;
+    color: #0071e3;
+    transition: color 0.2s ease;
 }
 
 .contact-link:hover{
-    color: #ffffff;
+    color: #0071e3;
+    text-decoration: underline !important;
 }
 
 .about-text{
@@ -171,6 +224,10 @@ table a:hover, .link-teaching :hover{
 .prev-semesters{
     font-size: 25px;
     font-weight: bold;
+}
+
+small {
+    color: #6e6e73;
 }
 
 @media (max-width: 991px) {
@@ -187,4 +244,17 @@ table a:hover, .link-teaching :hover{
     .table-style h5 {
         font-size: 16px;
     }
+}
+
+/* 6.3 — Focus states for keyboard navigation (WCAG AA) */
+a:focus-visible,
+button:focus-visible,
+.navbar-toggler-custom:focus-visible {
+    outline: 2px solid #0071e3;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+.navbar-toggler-custom:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 113, 227, 0.35);
 }

@@ -18,7 +18,7 @@ function loadHeader(activePage) {
     var navItems = pages.map(function (p) {
         var activeClass = p.href === activePage ? ' active' : '';
         return '<li class="nav-item">' +
-            '<a class="btn btn-primary nav-link' + activeClass + '" href="' + p.href + '">' + p.label + '</a>' +
+            '<a class="nav-link' + activeClass + '" href="' + p.href + '">' + p.label + '</a>' +
             '</li>';
     }).join('');
 
@@ -43,7 +43,7 @@ function loadHeader(activePage) {
                                     navItems +
                                     '<li class="nav-lattes">' +
                                         '<a href="https://lattes.cnpq.br/5890727692959507" class="img-link">' +
-                                            '<img src="Assets/Lattesbranco.png" alt="Currículo Lattes" width="60px" height="45px">' +
+                                            '<img src="Assets/Lattes.png" alt="Currículo Lattes" width="60px" height="45px">' +
                                         '</a>' +
                                     '</li>' +
                                 '</ul>' +
